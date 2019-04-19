@@ -1,0 +1,17 @@
+<h1>HAHA</h1>
+
+{% if request.user.is_superuser %}
+
+    <button type="button"><a href="{% url 'signup' %}">Create Internship Admin</a></button>
+    {% for i in users %}
+
+
+        <h3>{{i}}</h3>
+        <a href="{% url 'delete-user' i %}">Delete</a>
+        <a href="{% url 'update-user' i.pk %}">Update</a>
+
+    {% endfor %}
+
+{% else %}
+
+{% endif %}

@@ -1,0 +1,6 @@
+<h1 style="color:#C70039;font-weight:bold;">SignUp Here</h1>
+<form method="POST">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button type="submit" class="btn btn-light" style="width:170px;height:45px;font-size:20px;margin-left:130px;margin-top:10px;color:inherit;">Submit</button>
+</form>
