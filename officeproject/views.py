@@ -8,9 +8,22 @@ from django.views.generic.edit import UpdateView
 from django.contrib.auth.models import User
 from django.views.generic import CreateView
 from .forms import RegisterForm
+
+from django.contrib.admin.models import LogEntry, ADDITION, CHANGE, DELETION
+
+
+
 def home(request):
-    users = User.objects.filter(is_superuser=False)
+    # users = User.objects.filter(is_superuser=False)
+    users = User.objects.filter(groups__name='ISinternadmin')
+
     return render(request,"home.html",{'users':users})
+
+def log(request):
+    logs = LogEntry.objects.exclude(change_message="No fields changed.").order_by('-action_time')[:20]
+    logCount = LogEntry.objects.exclude(change_message="No fields changed.").order_by('-action_time')[:20].count()
+    return render(request,"log.html",{"logs":logs})
+
 
 def index(request):
     return render(request,"index.html")

@@ -1,0 +1,14 @@
+{% for j in record %}
+<p>{{j.full_name}}</p>
+<p>{{j.email}}</p>
+<p>{{j.phone_number}}</p>
+<p>{{j.stipend}}</p>
+<p>{{j.date_of_joining}}</p>
+<p>{{j.date_of_leaving}}</p>
+<p>{{j.internship_admin_remark}}</p>
+<p>{{j.internship_status}}</p>
+
+<img src="{{ j.profile_picture.url }}" width="240">
+<a href="{{ j.document_file.url }}">Document Image Link</a>
+<a href="{% url 'particular_edit' j.pk %}"> <button type="button" class="btn btn-info">Update</button></a>
+{% endfor %}

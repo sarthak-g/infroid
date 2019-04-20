@@ -24,6 +24,7 @@ urlpatterns = [
     path('',views.index,name='index'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('home/',views.home,name='home'),
+    path('logs/',views.log,name='log'),
     path('signup/',views.SignUpView,name='signup'),
     url(r'^delete/(?P<username>[\w|\W.-]+)/$', views.delete_user, name='delete-user'),
     path('edit/<int:pk>/', views.update_user.as_view(), name='update-user'),

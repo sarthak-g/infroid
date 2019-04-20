@@ -1,8 +1,16 @@
-<a href="{% url 'intern_create' %}">Create New  Intern Profile</a>
+<button><a href="{% url 'active_intern' %}">Interns having Active Status</a></button>
+<button><a href="{% url 'intern_create' %}">Create New  Intern Profile</a></button>
 {% for j in internlist %}
   <div style="margin-left:20px;">
 
     <p>{{j.full_name}}</p>
+    <p>{{j.email}}</p>
+    <p>{{j.phone_number}}</p>
+    <p>{{j.stipend}}</p>
+    <p>{{j.date_of_joining}}</p>
+    <p>{{j.date_of_leaving}}</p>
+    <p>{{j.internship_admin_remark}}</p>
+    <p>{{j.internship_status}}</p>
 
     <img src="{{ j.profile_picture.url }}" width="240">
     <a href="{{ j.document_file.url }}">Document Image Link</a>

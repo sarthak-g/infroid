@@ -1,6 +1,11 @@
 <h1>HAHA</h1>
 
 {% if request.user.is_superuser %}
+        
+        <button> <a href="{% url 'log' %}">logs</a></button>
+        <p>{{logCount}}</p>
+
+
 
     <button type="button"><a href="{% url 'signup' %}">Create Internship Admin</a></button>
     {% for i in users %}
@@ -11,9 +16,10 @@
         <a href="{% url 'update-user' i.pk %}">Update</a>
 
     {% endfor %}
-
-{% else %}
-<button> <a href="/intern/"> Manage Intern Profiles</a></button>
-
-
 {% endif %}
+{% ifequal user.groups.all.0.name "ISintern" %}
+  <button> <a href="{% url 'particular_record' %}"> See My Profile</a></button>
+{% endifequal %}
+{% ifequal user.groups.all.0.name "ISinternadmin" %}
+  <button> <a href="/intern/"> Manage Intern Profiles</a></button>
+{% endifequal %}
