@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path,include
 from .import views
 from django.conf.urls import url
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),
@@ -25,4 +27,6 @@ urlpatterns = [
     path('signup/',views.SignUpView,name='signup'),
     url(r'^delete/(?P<username>[\w|\W.-]+)/$', views.delete_user, name='delete-user'),
     path('edit/<int:pk>/', views.update_user.as_view(), name='update-user'),
-]
+    path('intern/', include("intern.urls")),
+
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

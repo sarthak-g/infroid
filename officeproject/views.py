@@ -9,18 +9,11 @@ from django.contrib.auth.models import User
 from django.views.generic import CreateView
 from .forms import RegisterForm
 def home(request):
-    # user = get_user_model()
-
-    # u =User.objects.values()
-
-
     users = User.objects.filter(is_superuser=False)
-
     return render(request,"home.html",{'users':users})
+
 def index(request):
     return render(request,"index.html")
-
-
 
 def SignUpView(request):
     if request.method == 'POST':
@@ -31,7 +24,6 @@ def SignUpView(request):
     else:
         form = RegisterForm()
     return render(request, 'signup.html', { 'form': form })
-
 
 def delete_user(request, username):
     context = {}
@@ -46,6 +38,7 @@ def delete_user(request, username):
         msg = e.message
 
     return render(request, 'delete_user.html',{'msg':msg})
+
 class update_user(UpdateView):
     model = User
     template_name = 'update_user.html'

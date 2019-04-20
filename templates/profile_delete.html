@@ -1,0 +1,7 @@
+<form action="" method="POST">
+{% csrf_token %}
+<h2>Are you sure you want to delete: <span style="color:red;"> {{delTODO.title}}</span>?</h2>
+<button type="submit" >Yes,Delete</button>
+<a href="{% url 'intern_list' %}"><button type="submit">No</button></a>
+
+</form>

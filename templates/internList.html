@@ -1,0 +1,14 @@
+<a href="{% url 'intern_create' %}">Create New  Intern Profile</a>
+{% for j in internlist %}
+  <div style="margin-left:20px;">
+
+    <p>{{j.full_name}}</p>
+
+    <img src="{{ j.profile_picture.url }}" width="240">
+    <a href="{{ j.document_file.url }}">Document Image Link</a>
+  <a href="{% url 'intern_edit' j.pk %}"> <button type="button" class="btn btn-info">Update</button></a>
+  <a href="{% url 'intern_delete' j.pk %}"> <button type="button" class="btn btn-danger">Delete</button></a>
+  </div>
+  <br>
+
+{% endfor %}
