@@ -25,7 +25,49 @@
     </div>
 {% endif %}
 {% ifequal user.groups.all.0.name "ISintern" %}
-  <button> <a href="{% url 'particular_record' %}"> See My Profile</a></button>
+
+
+  {% load static %}
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Infroid</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+  body{
+    background-image: url({% static 'images/bg2.jpg' %});
+    height: 100%;
+
+   /* Center and scale the image nicely */
+
+   background-repeat: no-repeat;
+   background-size: cover;
+  }
+  </style>
+
+  </head>
+  <body>
+
+  <div class="container" style="background-color:#ffffff;width:400px;margin-top:130px;height:700px;background-color:#1CC7D0;opacity:0.5;" >
+
+    <div ><img src="{% static 'images/internadmin.png' %}" alt="" style="border-radius: 60%;align:center;margin-top:40px;margin-left:-24px;height:350px;"></div>
+    <div style="margin-top:100px;margin-left:30px;">
+  <a href="{% url 'particular_record' %}"><button type="button" class="btn btn-warning" style="width:300px;"><b> <span style="font-size:30px;">See My Profile</span></b></button></a>
+    </div>
+  </div>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </body>
+  </html>
+
+
+
 {% endifequal %}
 {% ifequal user.groups.all.0.name "ISinternadmin" %}
 
