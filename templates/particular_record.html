@@ -7,33 +7,32 @@
   <div><h1 style="font-size:60px;text-align:center;color:#C70039;font-weight:bold;"> <b>Profile </b></h1></div>
   <div class="row">
 
-{% for j in record %}
+
 
 <div style="margin-top:10px;margin-left:30px;">
-<img src="{{ j.profile_picture.url }}" width="240">
+<img src="{{ record.profile_picture.url }}" width="240">
 </div>
 
 
 <div style="margin-left:30px;">
 
-<h3><span style="color:green;"><b> Full Name:</b></span> {{j.full_name}}</h3>
-<h3><span style="color:green;"><b>E-mail:</b></span> {{j.email}}</h3>
-<h3><span style="color:green;"><b>Phone Number:</b></span> {{j.phone_number}}</h3>
-<h3><span style="color:green;"><b>Stipend(in Rs.):</b></span> {{j.stipend}}</h3>
-<h3><span style="color:green;"><b>Date of joining:</b></span> {{j.date_of_joining}}</h3>
-<h3><span style="color:green;"><b>Date of leaving:</b></span> {{j.date_of_leaving}}</h3>
-<h3><span style="color:green;"><b>Remark:</b></span> {{j.internship_admin_remark}}</h3>
-<h3><span style="color:green;"><b>Status: </b></span> {{j.internship_status}}</h3>
+<h3><span style="color:green;"><b> Full Name:</b></span> {{record.full_name}}</h3>
+<h3><span style="color:green;"><b>E-mail:</b></span> {{record.email}}</h3>
+<h3><span style="color:green;"><b>Phone Number:</b></span> {{record.phone_number}}</h3>
+<h3><span style="color:green;"><b>Stipend(in Rs.):</b></span> {{record.stipend}}</h3>
+<h3><span style="color:green;"><b>Date of joining:</b></span> {{record.date_of_joining}}</h3>
+<h3><span style="color:green;"><b>Date of leaving:</b></span> {{record.date_of_leaving}}</h3>
+<h3><span style="color:green;"><b>Remark:</b></span> {{record.internship_admin_remark}}</h3>
+<h3><span style="color:green;"><b>Status: </b></span> {{record.internship_status}}</h3>
 
-<h3><span style="color:green;"><b>Document Link:</b></span> <a href="{{ j.document_file.url }}">Document Image Link</a></h3>
-<a href="{% url 'particular_edit' j.pk %}"> <button type="button" class="btn btn-primary" style="margin-bottom:10px;width:150px;">Edit Details</button></a>
+<h3><span style="color:green;"><b>Document Link:</b></span> <a href="{{ record.document_file.url }}">Document Image Link</a></h3>
+<a href="{% url 'particular_edit' record.pk %}"> <button type="button" class="btn btn-primary" style="margin-bottom:10px;width:150px;">Edit Details</button></a>
 
 </div>
 
 
 
 
-{% endfor %}
 </div>
 </div>
 {% endblock %}

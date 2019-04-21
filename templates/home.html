@@ -13,13 +13,16 @@
           <div class="container">
              <br><br><br>
               {% for i in users %}
-
+                {% if not i.groups.all.0.name == "ISintern" %}
+                  {% if not i.is_superuser %}
                   <div   style="border:2px solid black;margin-top:15px;">
                   <p><span style="color:green;margin-left:20px;margin-top:10px;">Useranme:</span> {{i}}</p>
                   <p><span style="color:green;margin-left:20px;margin-top:10px;margin-right:10px;">Email:</span> {{i.email}}</p>
                   <a href="{% url 'delete-user' i %}">  <button type="button" class="btn btn-danger" style="width:130px;float:right;;margin-right:10px;"> Delete</button></a>
                   <a href="{% url 'update-user' i.pk %}"><button type="button" class="btn btn-success" style="width:130px;float:right;margin-right:10px;"> Update</button></a>
                   </div>
+                  {% endif %}
+                  {% endif %}
               {% endfor %}
               </div>
     </div>
@@ -68,10 +71,11 @@
 
 
 
-{% endifequal %}
-{% ifequal user.groups.all.0.name "ISinternadmin" %}
+{% else %}
 
 
+
+  {% if not request.user.is_superuser %}
   {% load static %}
   <!DOCTYPE html>
   <html lang="en">
@@ -111,6 +115,6 @@
   </body>
   </html>
 
-
+{% endif %}
 {% endifequal %}
 {% endblock %}

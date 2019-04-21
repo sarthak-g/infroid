@@ -14,9 +14,7 @@ from django.contrib.admin.models import LogEntry, ADDITION, CHANGE, DELETION
 
 
 def home(request):
-    # users = User.objects.filter(is_superuser=False)
-    users = User.objects.filter(groups__name='ISinternadmin')
-
+    users = User.objects.all()
     return render(request,"home.html",{'users':users})
 
 def log(request):

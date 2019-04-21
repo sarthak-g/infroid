@@ -1,16 +1,11 @@
 from django.db import models
-# from phonenumber_field.modelfields import PhoneNumberField
-from django.dispatch import receiver
-from django.db.models.signals import post_save
-# from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import User
-# class User(AbstractUser):
-#     is_intern = models.BooleanField(default=True)
 
-# Create your models here.
+
+from django.contrib.auth.models import User
+
 
 class internprofile(models.Model):
-    # user = models.OneToOneField(User, on_delete=models.SET_NULL, related_name="person", null=True, blank=True)
+    
     username = models.CharField(max_length=30,default='')
     password = models.CharField(max_length=30,default='')
     full_name = models.CharField(max_length=30,blank=False)

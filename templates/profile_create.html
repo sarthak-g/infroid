@@ -5,9 +5,10 @@
   <h1 style="font-size:60px;text-align:center;color:#C70039;font-weight:bold;"> <b> New Intern Record </b></h1>
 <form method="POST" enctype="multipart/form-data">
 {% csrf_token %}
+<h2> Date format: YYYY-MM-DD</h2>
   {{form|crispy}}
-  <p>Date format: YYYY-MM-DD</p>
-<input type="submit" value="create" class="btn btn-primary" style="width:100px">
+
+<input type="submit" value="create" class="btn btn-primary" style="width:100px;margin-bottom:10px;">
 </form>
 </div>
 {% endblock %}
