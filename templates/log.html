@@ -1,3 +1,10 @@
+{% extends 'particular_edit.html' %}
+{% block content %}
+<a href="{% url 'home' %}"><button type="button" class="btn btn-primary" style="margin-right:10px;;width:100px;float:right;">Home </button></a>
+<div style="margin-left:20px;">
+<h1><b>All logs:</b> </h1>
 {% for k in logs %}
 <p>{{k}}</p>
 {% endfor %}
+</div>
+{% endblock %}

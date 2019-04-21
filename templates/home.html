@@ -1,21 +1,28 @@
-<h1>HAHA</h1>
+{%extends 'particular_edit.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
 
 {% if request.user.is_superuser %}
-        
-        <button> <a href="{% url 'log' %}">logs</a></button>
-        <p>{{logCount}}</p>
+        <div class="container" style="margin-top:10px;">
+        <a href="{% url 'index' %}"><button type="button" class="btn btn-primary" style="width:130px;float:right;margin-bottom:5px;margin-left:10px;"> logout</button></a>
+        <a href="{% url 'log' %}"><button type="button" class="btn btn-primary" style="width:130px;float:right;margin-bottom:5px;margin-left:10px;"> logs</button></a>
+        <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary" style="width:300px;float:right;margin-bottom:15px;">Create New Internship Admin</button></a>
 
 
 
-    <button type="button"><a href="{% url 'signup' %}">Create Internship Admin</a></button>
-    {% for i in users %}
+          <div class="container">
+             <br><br><br>
+              {% for i in users %}
 
-
-        <h3>{{i}}</h3>
-        <a href="{% url 'delete-user' i %}">Delete</a>
-        <a href="{% url 'update-user' i.pk %}">Update</a>
-
-    {% endfor %}
+                  <div   style="border:2px solid black;margin-top:15px;">
+                  <p><span style="color:green;margin-left:20px;margin-top:10px;">Useranme:</span> {{i}}</p>
+                  <p><span style="color:green;margin-left:20px;margin-top:10px;margin-right:10px;">Email:</span> {{i.email}}</p>
+                  <a href="{% url 'delete-user' i %}">  <button type="button" class="btn btn-danger" style="width:130px;float:right;;margin-right:10px;"> Delete</button></a>
+                  <a href="{% url 'update-user' i.pk %}"><button type="button" class="btn btn-success" style="width:130px;float:right;margin-right:10px;"> Update</button></a>
+                  </div>
+              {% endfor %}
+              </div>
+    </div>
 {% endif %}
 {% ifequal user.groups.all.0.name "ISintern" %}
   <button> <a href="{% url 'particular_record' %}"> See My Profile</a></button>
@@ -23,3 +30,4 @@
 {% ifequal user.groups.all.0.name "ISinternadmin" %}
   <button> <a href="/intern/"> Manage Intern Profiles</a></button>
 {% endifequal %}
+{% endblock %}

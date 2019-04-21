@@ -1,22 +1,50 @@
-<button><a href="{% url 'active_intern' %}">Interns having Active Status</a></button>
-<button><a href="{% url 'intern_create' %}">Create New  Intern Profile</a></button>
+{%extends 'particular_edit.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container" style="margin-top:10px;">
+<a href="{% url 'index' %}"><button type="button" class="btn btn-primary" style="width:100px;float:right;margin-bottom:5px;margin-left:10px;">logout</button></a>
+<a href="{% url 'active_intern' %}"><button type="button" class="btn btn-primary" style="width:230px;float:right;margin-bottom:5px;margin-left:10px;">Interns having Active Status</button></a>
+<a href="{% url 'intern_create' %}"><button type="button" class="btn btn-primary" style="width:300px;float:right;margin-bottom:15px;">Create New  Intern Profile</button></a>
+<br><br><br><br>
+
+
 {% for j in internlist %}
-  <div style="margin-left:20px;">
 
-    <p>{{j.full_name}}</p>
-    <p>{{j.email}}</p>
-    <p>{{j.phone_number}}</p>
-    <p>{{j.stipend}}</p>
-    <p>{{j.date_of_joining}}</p>
-    <p>{{j.date_of_leaving}}</p>
-    <p>{{j.internship_admin_remark}}</p>
-    <p>{{j.internship_status}}</p>
+<div class="container" style="border:2px solid black;margin-top:35px;">
+  <div class="row">
 
-    <img src="{{ j.profile_picture.url }}" width="240">
-    <a href="{{ j.document_file.url }}">Document Image Link</a>
-  <a href="{% url 'intern_edit' j.pk %}"> <button type="button" class="btn btn-info">Update</button></a>
-  <a href="{% url 'intern_delete' j.pk %}"> <button type="button" class="btn btn-danger">Delete</button></a>
-  </div>
+
+
+    <div style="margin-left:10px;margin-top:10px;" >
+      <img src="{{ j.profile_picture.url }}" width="240">
+    </div>
+
+
+    <div style="margin-left:30px;margin-bottom:10px;">
+    <p><span style="color:green;"><b> Full Name:</b></span> {{j.full_name}}</p>
+    <p><span style="color:green;"><b>E-mail:</b></span> {{j.email}}</p>
+    <p><span style="color:green;"><b>Phone Number:</b></span> {{j.phone_number}}</p>
+    <p><span style="color:green;"><b>Stipend(in Rs.)</b></span> {{j.stipend}}</p>
+    <p><span style="color:green;"><b>Date of joining:</b></span> {{j.date_of_joining}}</p>
+    <p><span style="color:green;"><b>Date of leaving:</b></span> {{j.date_of_leaving}}</p>
+    <p><span style="color:green;"><b>Remarks:</b></span> {{j.internship_admin_remark}}</p>
+    <p><span style="color:green;"><b>Status:</b></span> {{j.internship_status}}</p>
+
+    <p><a href="{{ j.document_file.url }}">Document Image Link</a></p>
+    <a href="{% url 'intern_edit' j.pk %}"> <button type="button" class="btn btn-info" style="width:100px;">Update</button></a>
+    <a href="{% url 'intern_delete' j.pk %}"> <button type="button" class="btn btn-danger" style="width:100px;">Delete</button></a>
+
+
+    </div>
+
+
+
   <br>
 
+</div>
+</div>
 {% endfor %}
+
+</div>
+{% endblock %}

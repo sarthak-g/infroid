@@ -44,9 +44,9 @@ def delete_user(request, username):
     try:
         u = User.objects.get(username=username)
         u.delete()
-        msg = 'The user is deleted.'
+        msg = 'Intern Admin is deleted.'
     except User.DoesNotExist:
-        msg = 'User does not exist.'
+        msg = 'Intern Admin does not exist.'
     except Exception as e:
         msg = e.message
 

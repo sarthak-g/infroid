@@ -1,1 +1,10 @@
+
+{% extends 'particular_edit.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="container">
+
+<img src="{% static 'images/index.png' %}" alt="">
 <button type="button"><a href="{% url 'login' %}">Log In</a></button>
+</div>
+{% endblock %}

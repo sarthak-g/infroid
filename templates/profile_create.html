@@ -1,6 +1,13 @@
+{%extends 'particular_edit.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+  <h1 style="font-size:60px;text-align:center;color:#C70039;font-weight:bold;"> <b> New Intern Record </b></h1>
 <form method="POST" enctype="multipart/form-data">
 {% csrf_token %}
-  {{form.as_p}}
+  {{form|crispy}}
   <p>Date format: YYYY-MM-DD</p>
-<input type="submit" value="create">
+<input type="submit" value="create" class="btn btn-primary" style="width:100px">
 </form>
+</div>
+{% endblock %}

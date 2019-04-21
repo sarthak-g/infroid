@@ -1,8 +1,15 @@
+{%extends 'particular_edit.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+  <h1 style="color:#C70039;font-weight:bold;">Update Intern Admin Details:</h1>
 <form action="" method="POST">
     {% csrf_token %}
-    {{form.as_p}}
-    <h2>Date format: YYYY-MM-DD</h2>
-  <button type="submit" class="btn btn-success" style="width:200px;font-size:20px;margin-left:30px;">Update</button>
+    {{form|crispy}}
+    <h3>Date format: YYYY-MM-DD</h3>
+  <button type="submit" class="btn btn-success" style="width:150px;">Update</button>
 
 
   </form>
+</div>
+{% endblock %}

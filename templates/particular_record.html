@@ -1,14 +1,39 @@
-{% for j in record %}
-<p>{{j.full_name}}</p>
-<p>{{j.email}}</p>
-<p>{{j.phone_number}}</p>
-<p>{{j.stipend}}</p>
-<p>{{j.date_of_joining}}</p>
-<p>{{j.date_of_leaving}}</p>
-<p>{{j.internship_admin_remark}}</p>
-<p>{{j.internship_status}}</p>
+{% extends 'particular_edit.html' %}
 
+{% block content %}
+
+<div class="container" style="border:2px solid black;margin-top:15px;">
+  <a href="{% url 'index' %}"><button type="button" class="btn btn-primary" style="width:100px;float:right;margin-bottom:5px;margin-left:10px;margin-top:10px;">logout</button></a>
+  <div><h1 style="font-size:60px;text-align:center;color:#C70039;font-weight:bold;"> <b>Profile </b></h1></div>
+  <div class="row">
+
+{% for j in record %}
+
+<div style="margin-top:10px;margin-left:30px;">
 <img src="{{ j.profile_picture.url }}" width="240">
-<a href="{{ j.document_file.url }}">Document Image Link</a>
-<a href="{% url 'particular_edit' j.pk %}"> <button type="button" class="btn btn-info">Update</button></a>
+</div>
+
+
+<div style="margin-left:30px;">
+
+<h3><span style="color:green;"><b> Full Name:</b></span> {{j.full_name}}</h3>
+<h3><span style="color:green;"><b>E-mail:</b></span> {{j.email}}</h3>
+<h3><span style="color:green;"><b>Phone Number:</b></span> {{j.phone_number}}</h3>
+<h3><span style="color:green;"><b>Stipend(in Rs.):</b></span> {{j.stipend}}</h3>
+<h3><span style="color:green;"><b>Date of joining:</b></span> {{j.date_of_joining}}</h3>
+<h3><span style="color:green;"><b>Date of leaving:</b></span> {{j.date_of_leaving}}</h3>
+<h3><span style="color:green;"><b>Remark:</b></span> {{j.internship_admin_remark}}</h3>
+<h3><span style="color:green;"><b>Status: </b></span> {{j.internship_status}}</h3>
+
+<h3><span style="color:green;"><b>Document Link:</b></span> <a href="{{ j.document_file.url }}">Document Image Link</a></h3>
+<a href="{% url 'particular_edit' j.pk %}"> <button type="button" class="btn btn-primary" style="margin-bottom:10px;width:150px;">Edit Details</button></a>
+
+</div>
+
+
+
+
 {% endfor %}
+</div>
+</div>
+{% endblock %}

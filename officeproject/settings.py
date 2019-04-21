@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "intern",
     "phonenumber_field",
+    "crispy_forms",
 
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -127,4 +130,3 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'intern/media')
 
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = ''
