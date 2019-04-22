@@ -2,12 +2,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 
-class RegisterForm(UserCreationForm):
-    # declare the fields you will show
+class RegisterForm(UserCreationForm):   #form for taking new internadmin details
     username = forms.CharField(label="Your Username")
-    # first password field
     password1 = forms.CharField(label="Your Password",widget=forms.PasswordInput)
-    # confirm password field
     password2 = forms.CharField(label="Repeat Your Password",widget=forms.PasswordInput)
     email = forms.EmailField(label = "Email Address")
     first_name = forms.CharField(label = "Name")

@@ -13,20 +13,20 @@ from django.contrib.admin.models import LogEntry, ADDITION, CHANGE, DELETION
 
 
 
-def home(request):
+def home(request):          #view for displaying home page
     users = User.objects.all()
     return render(request,"home.html",{'users':users})
 
-def log(request):
+def log(request):   #view for displaying logs(viewable only by superuser)
     logs = LogEntry.objects.exclude(change_message="No fields changed.").order_by('-action_time')[:20]
     logCount = LogEntry.objects.exclude(change_message="No fields changed.").order_by('-action_time')[:20].count()
     return render(request,"log.html",{"logs":logs})
 
 
-def index(request):
+def index(request): #login page of internship portal
     return render(request,"index.html")
 
-def SignUpView(request):
+def SignUpView(request):    #SignUp of new internAdmin,will done by only superuser
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
@@ -36,7 +36,7 @@ def SignUpView(request):
         form = RegisterForm()
     return render(request, 'signup.html', { 'form': form })
 
-def delete_user(request, username):
+def delete_user(request, username): # for delete particular internAdmin
     context = {}
 
     try:
@@ -50,7 +50,7 @@ def delete_user(request, username):
 
     return render(request, 'delete_user.html',{'msg':msg})
 
-class update_user(UpdateView):
+class update_user(UpdateView):  #for update details of particular internAdmin
     model = User
     template_name = 'update_user.html'
     fields = ['username','first_name','last_name','email',]
