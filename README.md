@@ -1,7 +1,6 @@
 # infroid
 
-Heroku link:http://infroidsarthak.herokuapp.com/
-
+Heroku link: https://infroid.herokuapp.com
 
 Step1: Clone project using "git clone https://github.com/sarthak-g/infroid.git" in terminal
 
