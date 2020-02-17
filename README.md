@@ -1,44 +1,46 @@
 # infroid
 
+A webapp to be used by recruiting officer to manage interns in their company.It is designed from scratch according to the requirements of company named "infroid". 
+
 Heroku link: https://infroid.herokuapp.com
 
-Step1: Clone project using "git clone https://github.com/sarthak-g/infroid.git" in terminal
+<ins>Step 1:</ins> Clone project using "git clone https://github.com/sarthak-g/infroid.git" in terminal
 
-Step2: "cd infroid"
+<ins>Step 2:</ins> "cd infroid"
 
-Step3: "cd env/bin"
+<ins>Step 3:</ins> "cd env/bin"
 
-Step4: "source activate"
+<ins>Step 4:</ins> "source activate"
 
-step5: "cd .."
+<ins>Step 5:</ins> "cd .."
 
-step6: "cd .."
+<ins>Step 6:</ins> "cd .."
 
-step7: "pip install -r requirements.txt (for windows)"
+<ins>Step 7:</ins> "pip install -r requirements.txt (for windows)"
 
        "pip3 install -r requirements.txt (for mac/linux)"
        
-step8: "python manage.py runserver"  (for windows)
+<ins>Step 8:</ins> "python manage.py runserver"  (for windows)
 
        "python3 manage.py runserver" (for mac/linux )
        
-step9 : Head to "http://127.0.0.1:8000/" in browser.    
+<ins>Step 9:</ins> Head to "http://127.0.0.1:8000/" in browser.    
 
-Credentials are:
+Dummy Credentials are:
 
-superuser
+<ins>For superuser</ins>
 
 username:sarthak11
 
 password:sarthak041
 
-internship admin
+<ins>For internship admin</ins>
 
 username: internadmin11
 
 password:intern1234
 
-intern
+<ins>For intern</ins>
 
 username:raghav11
 
